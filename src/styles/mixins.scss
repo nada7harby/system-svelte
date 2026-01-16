@@ -1,0 +1,145 @@
+/**
+ * SCSS Mixins - Reusable style patterns
+ */
+
+@use 'variables' as *;
+
+// ============================
+// RESPONSIVE MIXINS
+// ============================
+
+@mixin sm {
+	@media (min-width: $breakpoint-sm) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (min-width: $breakpoint-md) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (min-width: $breakpoint-lg) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: $breakpoint-xl) {
+		@content;
+	}
+}
+
+@mixin xxl {
+	@media (min-width: $breakpoint-2xl) {
+		@content;
+	}
+}
+
+// ============================
+// FLEX UTILITIES
+// ============================
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+// ============================
+// TYPOGRAPHY
+// ============================
+
+@mixin heading($size: $font-size-2xl) {
+	font-family: $font-family-heading;
+	font-size: $size;
+	font-weight: $font-weight-bold;
+	line-height: $line-height-tight;
+	color: $neutral-900;
+}
+
+@mixin text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// ============================
+// EFFECTS
+// ============================
+
+@mixin glass-effect {
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@mixin glass-effect-dark {
+	background: rgba(24, 24, 27, 0.85);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@mixin gradient-primary {
+	background: linear-gradient(135deg, $primary-500 0%, $primary-700 100%);
+}
+
+@mixin gradient-secondary {
+	background: linear-gradient(135deg, $secondary-500 0%, $secondary-700 100%);
+}
+
+@mixin hover-lift {
+	transition: transform $transition-base, box-shadow $transition-base;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: $shadow-lg;
+	}
+}
+
+// ============================
+// FOCUS STATES
+// ============================
+
+@mixin focus-ring {
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba($primary-500, 0.4);
+	}
+
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba($primary-500, 0.4);
+	}
+}
+
+// ============================
+// CARDS
+// ============================
+
+@mixin card {
+	background: white;
+	border-radius: $radius-xl;
+	box-shadow: $shadow-md;
+	border: 1px solid $neutral-200;
+}
+
+@mixin card-hover {
+	@include card;
+	@include hover-lift;
+}

@@ -1,0 +1,5 @@
+# Ignore artifacts
+build
+.svelte-kit
+dist
+node_modules
